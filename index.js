@@ -7,6 +7,9 @@ app.use(express.static('./assets'));
 
 app.use(expressLayouts);
 
+app.set('layout extractStyles',true);
+app.set('layout extractScripts',true);
+
 app.use('/',require('./routes'));
 
 app.set('view engine','ejs');
