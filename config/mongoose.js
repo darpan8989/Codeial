@@ -1,13 +1,19 @@
-const mongoose=require('mongoose');
-mongoose.connect('mongodb://localhost/codeial_development');
+//Import the mongoose module
+const mongoose = require('mongoose');
 
-const db=mongoose.connection;
+//Set up default mongoose connection
+const mongoDB = 'mongodb://localhost/codeial_development';
+mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true});
 
-db.on('error',console.error.bind(console,'error connecting to mongoDB'));
+//Get the default connection
+const db = mongoose.connection;
 
+//Bind connection to error event (to get notification of connection errors)
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 db.once('open',function(){
     console.log('connected to DB :: MongoDB');
 
 })
 
 module.exports=db;
+
