@@ -1,7 +1,9 @@
 const User=require('../models/user');
 
 module.exports.profile=function(req,res){
-    return res.end('<h1>Profile page</h1>');
+    return res.render('user_profile',{
+        title:'Changes made latest / Profile Page '
+    });
 }
 
 module.exports.signUp=function(req,res){
